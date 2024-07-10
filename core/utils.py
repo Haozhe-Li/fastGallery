@@ -13,11 +13,11 @@ def clear_all_data():
     with open(WEBSITE_CONFIG_DIR, 'w') as f:
         content = '''
 {
-    "website_name": "test",
-    "website_title": "test",
-    "website_about": "test",
-    "author_name": "test",
-    "author_url": "test"
+    "website_name": "Photo Portfolio",
+    "website_title": "Photo Portfolio",
+    "website_about": "Hi there! This is a demo page for Photo Portfolio - A simple and elegant photo gallery / portfolio website built with Flask.",
+    "author_name": "Haozhe Li",
+    "author_url": "https://www.haozhe.li"
 }
 
 '''

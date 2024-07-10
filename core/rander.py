@@ -1,6 +1,6 @@
 import json
-import os
 from core.globalvaris import *
+from flask import url_for
 
 def rander():
     with open(WEBSITE_CONFIG_DIR, 'r') as f:
@@ -21,7 +21,7 @@ def rander_pic_website(input_picture_database: str) -> str:
             description = pic_db[index]['description']
             content_block = f'''
             <article class="thumb">
-                <a href="/static/{preview_img}" class="image"><img src="/static/{img}" alt="preview image"/></a>
+                <a href="{url_for('static', filename=img)}" class="image"><img src="{url_for('static', filename=preview_img)}" alt="preview image"/></a>
                 <h2>{title}</h2>
                 <p>{description}</p>
             </article>
