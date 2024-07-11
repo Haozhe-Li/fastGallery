@@ -1,4 +1,9 @@
+# REQUIRED
+flask
+
+# REQUIRED for local database update, not required for deployment
+# If your web deployment provider limits the size of the library to be installed
+# you can remove the following libraries by commenting them out
 httpx
 gradio
-flask
 pillow

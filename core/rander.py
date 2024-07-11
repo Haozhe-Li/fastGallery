@@ -13,7 +13,7 @@ def rander_pic_website(input_picture_database: str) -> str:
         content = ""
         pic_db = json.load(f)
         db_length = pic_db['len']
-        for i in range(db_length):
+        for i in range(db_length - 1, -1, -1):
             index = str(i)
             preview_img = pic_db[index]['preview_img']
             img = pic_db[index]['img']
