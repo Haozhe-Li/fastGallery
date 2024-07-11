@@ -9,4 +9,3 @@ PREVIEW_DIR = os.path.join(ROOT_DIR, "static", "preview")
 IMAGE_DIR = os.path.join(ROOT_DIR, "static", "images")
 DB_DIR = os.path.join(ROOT_DIR, "data", "image_db.json")
 WEBSITE_CONFIG_DIR = os.path.join(ROOT_DIR, "data", "website_config.json")
-

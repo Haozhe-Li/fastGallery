@@ -6,18 +6,20 @@ import sys
 
 from core.globalvaris import *
 
+
 def delete_content_within_folder(folder_path: str) -> None:
     for filename in os.listdir(folder_path):
         file_path = os.path.join(folder_path, filename)
         if os.path.isfile(file_path):
             os.remove(file_path)
 
+
 def clear_all_data():
-    with open(DB_DIR, 'w') as f:
-        f.write('''{"len": 0}''')
-    
-    with open(WEBSITE_CONFIG_DIR, 'w') as f:
-        content = '''
+    with open(DB_DIR, "w") as f:
+        f.write("""{"len": 0}""")
+
+    with open(WEBSITE_CONFIG_DIR, "w") as f:
+        content = """
 {
     "website_name": "Photo Portfolio",
     "website_title": "Photo Portfolio",
@@ -26,7 +28,7 @@ def clear_all_data():
     "author_url": "https://www.haozhe.li"
 }
 
-'''
+"""
         f.write(content)
 
     image_folder = IMAGE_DIR
@@ -40,6 +42,6 @@ def clear_all_data():
         if os.path.isfile(file_path):
             os.remove(file_path)
 
-if __name__ == '__main__':
-    clear_all_data()    
-    
+
+if __name__ == "__main__":
+    clear_all_data()
