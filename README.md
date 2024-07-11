@@ -1,12 +1,21 @@
 # Photo Portfolio
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHaozhe-Li%2Fphoto-portfolio)
+[![My Skills](https://skillicons.dev/icons?i=flask,py,html,vercel)](#)
 
-A simple and elegant photo gallery / portfolio website built with Flask.
+A simple and elegant photo gallery portfolio website built with Flask.
+
+
+
+# Why Photo Portfolio?
+- [x] **Fast🚀:** 97 performance score on [PSI](https://pagespeed.web.dev/analysis/https-haozheli-pictures/4ccl9diswh?form_factor=mobile) when loading more than 30 pictures. Photos will ready to be viewed within 0.4 seconds. 
+- [x] **Easy🎂:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHaozhe-Li%2Fphoto-portfolio) with one click. Easy to deploy to any serverless platforms. GUI provided for setting or updating website. Coding is slightly required.
+- [x] **Responsive🌆:** Responsive design allowed contents to be displayed in varied screen size.
 
 
 
 # Usage
+
+#### Quick Start
 
 1. Clone the repository
 
@@ -34,6 +43,14 @@ A simple and elegant photo gallery / portfolio website built with Flask.
    ````
 
    Then you should be able to visit ``http://127.0.0.1:5000`` to preview your website.
+
+#### Beta features
+
+- **Batch Pictures Upload:** Copy and paste all your pictures you wish to uplaod to `/tests/image_folder`, and run the python script `python3 update_picdb_from_folder.py` under `/tests` directory. All the pictures will be loaded into database with filename as title, and empty description.
+
+# Contribution
+
+Pull request and Issues are welcome! Don't hesitate to question us.
 
 
 
