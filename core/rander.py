@@ -4,6 +4,11 @@ from flask import url_for
 
 
 def rander():
+    """
+    Rander the website with Flask Format
+    input: None
+    output: dict
+    """
     with open(WEBSITE_CONFIG_DIR, "r") as f:
         content = json.load(f)
         content["pic"] = rander_pic_website(DB_DIR)
@@ -11,11 +16,16 @@ def rander():
 
 
 def rander_pic_website(input_picture_database: str) -> str:
+    """
+    Rander the picture into website with Flask Format
+    input: input_picture_database: str
+    output: str
+    """
     with open(input_picture_database, "r") as f:
         content = ""
         pic_db = json.load(f)
-        db_length = pic_db["len"]
-        for i in range(db_length - 1, -1, -1):
+        idxs = pic_db["idxs"]
+        for i in idxs:
             index = str(i)
             preview_img = pic_db[index]["preview_img"]
             img = pic_db[index]["img"]

@@ -10,6 +10,11 @@ from core.globalvaris import *
 def convert_to_webp(
     input_file: str, output_file: str, quality: int, max_size: int
 ) -> None:
+    """
+    Convert an image to webp format
+    input: input_file: str, output_file: str, quality: int, max_size: int
+    output: None
+    """
     try:
         with Image.open(input_file) as im:
             if max_size != None:
@@ -21,7 +26,12 @@ def convert_to_webp(
         print(str(e))
 
 
-def update_db(args: dict) -> str:
+def update_db(args: dict) -> None:
+    """
+    Update the database with a new image
+    input: args: dict
+    output: None
+    """
     input_file = args["img_url"]
     title = args["title"]
 
@@ -49,10 +59,9 @@ def update_db(args: dict) -> str:
         input_file=input_file,
         output_file=output_img_path,
         quality=IMAGE_QUALITY,
-        max_size=None,
+        max_size=IMAGE_SIZE,
     )
 
-    # save to json
     with open(DB_DIR, "r") as f:
         db = json.load(f)
         index = db["len"]
@@ -63,16 +72,24 @@ def update_db(args: dict) -> str:
             "description": args["description"],
         }
         db["len"] += 1
+        db["idxs"].insert(0, index)
+
     with open(DB_DIR, "w") as f:
         json.dump(db, f)
 
 
 def update_db_from_folder(folder_path: str) -> None:
+    """
+    Update the database with images from a folder
+    input: folder_path: str
+    output: None
+    """
     filenames = sorted(os.listdir(folder_path))
     for filename in filenames:
         if not filename.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
             continue
+        print(f"""processing {filename}""")
         file_path = os.path.join(folder_path, filename)
         if os.path.isfile(file_path):
             title = filename.split(".")[0]
-            update_db({"img_url": file_path, "title": title, "description": ""})
+            update_db({"img_url": file_path, "title": title, "description": title})
