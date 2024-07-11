@@ -42,6 +42,17 @@ def update_db(args: dict) -> str:
         db['len'] += 1
     with open(DB_DIR, 'w') as f:
         json.dump(db, f)
+
+def update_db_from_folder(folder_path: str) -> None:
+    filenames = sorted(os.listdir(folder_path))
+    for filename in filenames:
+        file_path = os.path.join(folder_path, filename)
+        if os.path.isfile(file_path):
+            update_db({
+                'img_url': file_path,
+                'title': filename,
+                'description': ''
+            })
     
 if __name__ == '__main__':
     arg = {
