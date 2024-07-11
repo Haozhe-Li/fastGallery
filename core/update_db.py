@@ -7,6 +7,9 @@ import json
 from core.globalvaris import *
 
 def convert_to_webp(input_file: str, output_file: str, quality: int, max_size: int) -> None:
+    if not input_file.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
+        print(f'''{input_file} is not a valid image file''')
+        return
     try:
         with Image.open(input_file) as im:
             if max_size != None:
@@ -26,6 +29,11 @@ def update_db(args: dict) -> str:
     output_preview_img_path = f'''{PREVIEW_DIR}/{pic_id}.webp'''
     output_img_path = f'''{IMAGE_DIR}/{pic_id}.webp'''
     
+    if not os.path.exists(PREVIEW_DIR):
+        os.makedirs(PREVIEW_DIR)
+    if not os.path.exists(IMAGE_DIR):
+        os.makedirs(IMAGE_DIR)
+
     convert_to_webp(input_file=input_file, output_file=output_preview_img_path, quality=PREVIEW_QUALITY, max_size=PREVIEW_SIZE)
     convert_to_webp(input_file=input_file, output_file=output_img_path, quality=IMAGE_QUALITY, max_size=None)
 
@@ -53,13 +61,5 @@ def update_db_from_folder(folder_path: str) -> None:
                 'title': filename,
                 'description': ''
             })
-    
-if __name__ == '__main__':
-    arg = {
-            'img_url': '/Users/haozheli/downloads/IMG_0611.JPG',
-            'title': 'test_img',
-            'description': 'test_img'
-        }
-    update_db(arg)
 
 

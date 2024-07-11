@@ -6,6 +6,12 @@ import sys
 
 from core.globalvaris import *
 
+def delete_content_within_folder(folder_path: str) -> None:
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+
 def clear_all_data():
     with open(DB_DIR, 'w') as f:
         f.write('''{"len": 0}''')
