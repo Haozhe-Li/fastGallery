@@ -1,5 +1,7 @@
 # Photo Portfolio
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHaozhe-Li%2Fphoto-portfolio)
+
 A simple and elegant photo gallery / portfolio website built with Flask.
 
 
@@ -15,7 +17,7 @@ A simple and elegant photo gallery / portfolio website built with Flask.
 2. Install the dependencies:
 
    ````bash
-   pip install -m requirements.txt
+   pip install -r requirements.txt
    ````
 
 3. Go to your project directory and change to the **``client``** folder using a command like ``cd client``: 
