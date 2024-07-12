@@ -1,9 +1,7 @@
 import sys
-
+sys.path.append('/Users/haozheli/Coding/haozheli.pictures')
 
 from core.utils import *
 from core.globalvaris import *
 
-clear_all_data()
-
-# compact_idxs(DB_DIR)
+generate_keywords(DB_DIR)

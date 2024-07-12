@@ -1,61 +1,68 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>{{ website_name }}</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Site Icons -->
-		<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
-		<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-	</head>
-	<body>
+  <head>
+    <title>{{ website_name }}</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1>{{ website_name }}</h1>
+        <nav>
+          <ul>
+            <li><a href="#footer" class="icon fa-info-circle">About</a></li>
+          </ul>
+        </nav>
+      </header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+      <!-- Main -->
+      <div id="main">{{ pic | safe }}</div>
 
-				<!-- Header -->
-					<header id="header">
-						<p id="switch-language"></p>
-						<nav>
-							<ul>
-								<li><a href="#footer" class="icon fa-info-circle">About</a></li>
-							</ul>
-						</nav>
-					</header>
+      <div class="copyrights">
+        Collect from <a href="{{ author_url }}">{{ author_name }}</a>
+      </div>
 
-				<!-- Main -->
-					<div id="main">
-						{{ pic | safe }}
-					</div>
-					
-                    <div class="copyrights">Collect from <a href="{{ author_url }}" >{{ author_name }}</a></div>
+      <!-- Footer -->
+      <footer id="footer" class="panel">
+        <div class="inner split">
+          <div>
+            <section>
+              <h2>{{ website_title }}</h2>
+              <p>{{ website_about | safe }}</p>
+			        <p>Fast search with keywords: {{ keywords | safe }}</p>
+            </section>
+            <p class="copyright">
+              &copy; <a href="{{ author_url }}">{{ author_name }}</a>
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
 
-				<!-- Footer -->
-					<footer id="footer" class="panel">
-						<div class="inner split">
-							<div>
-								<section>
-									<h2>{{ website_title }}</h2>
-									<p>
-										{{ website_about | safe }}
-									</p>
-								</section>
-								<p class="copyright">
-									&copy; <a href="{{ author_url }}">{{ author_name }}</a> <script>document.write(new Date().getFullYear());</script>
-								</p>
-							</div>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/jquery.poptrox.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/util.js') }}"></script>
-		<!--[if lte IE 8]><script src="{{ url_for('static', filename='js/ie/respond.min.js') }}"></script><![endif]-->
-		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-	</body>
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.poptrox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <!--[if lte IE 8
+      ]><script src="{{ url_for('static', filename='js/ie/respond.min.js') }}"></script
+    ><![endif]-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
 </html>

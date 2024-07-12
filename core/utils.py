@@ -3,6 +3,7 @@ import os
 import json
 import os
 import sys
+import string
 
 from core.globalvaris import *
 
@@ -26,14 +27,14 @@ def clear_all_data():
     output: None
     """
     with open(DB_DIR, "w") as f:
-        f.write("""{"len": 0, "idxs": []}""")
+        f.write("""{"len": 0, "idxs": [], "keywords": []}""")
 
     with open(WEBSITE_CONFIG_DIR, "w") as f:
         content = """
 {
-    "website_name": "fastGallery",
-    "website_title": "fastGallery",
-    "website_about": "Hi there! This is a demo page for fastGallery - A simple and elegant photo gallery / portfolio website built with Flask.",
+    "website_name": "Photo Portfolio",
+    "website_title": "Photo Portfolio",
+    "website_about": "Hi there! This is a demo page for Photo Portfolio - A simple and elegant photo gallery / portfolio website built with Flask.",
     "author_name": "Haozhe Li",
     "author_url": "https://www.haozhe.li"
 }
@@ -70,3 +71,38 @@ def compact_idxs(db_filepath: str) -> None:
 
     with open(db_filepath, "w") as file:
         json.dump(new_data, file, indent=4)
+
+
+def generate_keywords(input_picture_database: str) -> None:
+    # load the input_picture_database json into a dict
+    # go through the [title] and [description] of each picture
+    # and find out the 5 most common words except 'the', 'a' and punctuation
+    # save the 5 most common words into the output_website_config under the key "keywords" as a list.
+    with open(input_picture_database, "r") as f:
+        pic_db = json.load(f)
+        idxs = pic_db["idxs"]
+        word_count = {}
+        for i in idxs:
+            index = str(i)
+            title = pic_db[index]["title"]
+            description = pic_db[index]["description"]
+            for word in title.split() + description.split():
+                word = word.lower()
+                if word in {"the", "a", "", " "}:
+                    continue
+                if word[-1] in string.punctuation:
+                    word = word[:-1]
+                if word in word_count:
+                    word_count[word] += 1
+                else:
+                    word_count[word] = 1
+        sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+        if len(sorted_words) < 6:
+            keywords = [word.upper() for word, _ in sorted_words if word != ""]
+        else:
+            keywords = [word.upper() for word, _ in sorted_words[:6] if word != ""]
+        with open(input_picture_database, "r") as f:
+            content = json.load(f)
+            content["keywords"] = keywords
+        with open(input_picture_database, "w") as f:
+            json.dump(content, f, indent=4)

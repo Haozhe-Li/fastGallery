@@ -5,6 +5,7 @@ import uuid
 from PIL import Image
 import json
 from core.globalvaris import *
+from core.utils import compact_idxs, generate_keywords
 
 
 def convert_to_webp(
@@ -26,12 +27,18 @@ def convert_to_webp(
         print(str(e))
 
 
-def update_db(args: dict) -> None:
+def update_db(args: dict, keyword=True, compact=True) -> None:
     """
     Update the database with a new image
     input: args: dict
     output: None
     """
+
+    if compact:
+        compact_idxs(DB_DIR)
+    if keyword:
+        generate_keywords(DB_DIR)
+
     input_file = args["img_url"]
     title = args["title"]
 
@@ -72,7 +79,7 @@ def update_db(args: dict) -> None:
             "description": args["description"],
         }
         db["len"] += 1
-        db["idxs"].insert(0, index)
+        db["idxs"].append(index)
 
     with open(DB_DIR, "w") as f:
         json.dump(db, f)
@@ -92,4 +99,10 @@ def update_db_from_folder(folder_path: str) -> None:
         file_path = os.path.join(folder_path, filename)
         if os.path.isfile(file_path):
             title = filename.split(".")[0]
-            update_db({"img_url": file_path, "title": title, "description": title})
+            update_db(
+                {"img_url": file_path, "title": title, "description": title},
+                keyword=False,
+                compact=False,
+            )
+            compact_idxs(DB_DIR)
+            generate_keywords(DB_DIR)
