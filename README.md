@@ -10,6 +10,12 @@ A simple and elegant photo gallery portfolio website built with Flask.
 - [x] **Fast🚀:** 97 performance score on [PSI](https://pagespeed.web.dev/analysis/https-haozheli-pictures/4ccl9diswh?form_factor=mobile) when loading more than 30 pictures. Photos will ready to be viewed within 0.4 seconds. 
 - [x] **Easy🎂:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHaozhe-Li%2FfastGallery) with one click. Easy to deploy to any serverless platforms. GUI provided for setting or updating website. Coding is slightly required.
 - [x] **Responsive🌆:** Responsive design allowed contents to be displayed in varied screen size.
+- [x] **Search🔎:** Smart generate keywords filter for fast searching.
+
+**still working on:**
+- [ ] Customizing filters on the client side
+- [ ] i18n
+- [ ] Smart Image Tagging
 
 
 
