@@ -32,9 +32,9 @@ def clear_all_data():
     with open(WEBSITE_CONFIG_DIR, "w") as f:
         content = """
 {
-    "website_name": "Photo Portfolio",
-    "website_title": "Photo Portfolio",
-    "website_about": "Hi there! This is a demo page for Photo Portfolio - A simple and elegant photo gallery / portfolio website built with Flask.",
+    "website_name": "fastGallery",
+    "website_title": "fastGallery",
+    "website_about": "Hi there! This is a demo page for fastGallery - A simple and elegant photo gallery / portfolio website built with Flask.",
     "author_name": "Haozhe Li",
     "author_url": "https://www.haozhe.li"
 }
@@ -43,15 +43,13 @@ def clear_all_data():
         f.write(content)
 
     image_folder = IMAGE_DIR
-    for filename in os.listdir(image_folder):
-        file_path = os.path.join(image_folder, filename)
-        if os.path.isfile(file_path):
-            os.remove(file_path)
     preview_folder = PREVIEW_DIR
-    for filename in os.listdir(preview_folder):
-        file_path = os.path.join(preview_folder, filename)
-        if os.path.isfile(file_path):
-            os.remove(file_path)
+    if os.path.exists(image_folder):
+        delete_content_within_folder(image_folder)
+    if os.path.exists(preview_folder):
+        delete_content_within_folder(preview_folder)
+    if not os.path.exists(os.path.join(ROOT_DIR, "tests", "images_folder")):
+        os.makedirs(os.path.join(ROOT_DIR, "tests", "images_folder"))
 
 
 def compact_idxs(db_filepath: str) -> None:
