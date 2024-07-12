@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/Users/haozheli/Coding/haozheli.pictures')
+
 
 from core.update_db import update_db_from_folder
 from core.globalvaris import *
