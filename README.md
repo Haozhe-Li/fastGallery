@@ -1,4 +1,4 @@
-# Photo Portfolio
+# fastGallery
 
 [![My Skills](https://skillicons.dev/icons?i=flask,py,html,vercel)](#)
 
@@ -6,9 +6,9 @@ A simple and elegant photo gallery portfolio website built with Flask.
 
 
 
-# Why Photo Portfolio?
+# Why fastGallery?
 - [x] **Fast🚀:** 97 performance score on [PSI](https://pagespeed.web.dev/analysis/https-haozheli-pictures/4ccl9diswh?form_factor=mobile) when loading more than 30 pictures. Photos will ready to be viewed within 0.4 seconds. 
-- [x] **Easy🎂:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHaozhe-Li%2Fphoto-portfolio) with one click. Easy to deploy to any serverless platforms. GUI provided for setting or updating website. Coding is slightly required.
+- [x] **Easy🎂:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHaozhe-Li%2FfastGallery) with one click. Easy to deploy to any serverless platforms. GUI provided for setting or updating website. Coding is slightly required.
 - [x] **Responsive🌆:** Responsive design allowed contents to be displayed in varied screen size.
 
 
@@ -20,7 +20,7 @@ A simple and elegant photo gallery portfolio website built with Flask.
 1. Clone the repository
 
    ````
-   https://github.com/Haozhe-Li/photo-portfolio.git
+   https://github.com/Haozhe-Li/fastGallery.git
    ````
 
 2. Install the dependencies:
