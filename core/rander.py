@@ -1,7 +1,6 @@
 import json
 from core.globalvaris import *
 from flask import url_for
-import tkinter as tk
 
 def rander(keyword=None):
     """
