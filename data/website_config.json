@@ -1,9 +1,10 @@
 
 {
-    "website_name": "fastGallery",
-    "website_title": "fastGallery",
-    "website_about": "Hi there! This is a demo page for fastGallery - A simple and elegant photo gallery / portfolio website built with Flask.",
-    "author_name": "Haozhe Li",
-    "author_url": "https://www.haozhe.li"
+    "website_name": "Website Name",
+    "website_title": "Website Title",
+    "website_about": "Website About Info",
+    "author_name": "Author Name",
+    "author_url": "https://authoururl.com",
+    "enable_search_bar": true
 }
 

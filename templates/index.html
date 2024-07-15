@@ -20,10 +20,10 @@
     <div id="wrapper">
       <!-- Header -->
       <header id="header">
-        <h1>{{ website_name }}</h1>
+        <h1>{{ website_title | safe }}</h1>
         <nav>
           <ul>
-            <li><a href="#footer" class="icon fa-info-circle">About</a></li>
+            <li><a href="#footer" class="icon fa-solid fa-bars">Menu</a></li>
           </ul>
         </nav>
       </header>
@@ -31,8 +31,12 @@
       <!-- Main -->
       <div id="main">{{ pic | safe }}</div>
 
+      {% if no_result %}
+      <h1 style="text-align: center; justify-content: center;">No Photos</h1>
+      {% endif %}
+
       <div class="copyrights">
-        Collect from <a href="{{ author_url }}">{{ author_name }}</a>
+        Collect from <a href="{{ author_url }}">{{ author_name | safe }}</a>
       </div>
 
       <!-- Footer -->
@@ -40,12 +44,18 @@
         <div class="inner split">
           <div>
             <section>
-              <h2>{{ website_title }}</h2>
+              <h2>{{ website_name | safe }}</h2>
               <p>{{ website_about | safe }}</p>
-			        <p>Fast search with keywords: {{ keywords | safe }}</p>
+
+              {% if search_bar %}
+              <form action="/search" method="get">
+                <input type="text" name="query" placeholder="Searching by typing and pressing enter">
+                <p>{{ keywords | safe }}</p>
+              </form>
+              {% endif %}
             </section>
             <p class="copyright">
-              &copy; <a href="{{ author_url }}">{{ author_name }}</a>
+              &copy; <a href="{{ author_url }}">{{ author_name | safe }}</a>
               <script>
                 document.write(new Date().getFullYear());
               </script>

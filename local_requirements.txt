@@ -1,0 +1,5 @@
+# REQUIRED for local database update, not required for deployment
+httpx
+gradio
+pillow
+nltk # this is for the smart keywords feature. If you don't want to use it, you can remove this line
